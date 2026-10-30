@@ -1,0 +1,25 @@
+{
+  "clicker-button": {
+    "coming_soon": true,
+    "header_image": "assets/games/clicker-button/header.jpg",
+    "is_free": false,
+    "platforms": [
+      "windows"
+    ],
+    "release_date": "",
+    "store_live": false,
+    "store_url": "https://store.steampowered.com/app/5526030/"
+  },
+  "clicker-ore": {
+    "coming_soon": false,
+    "header_image": "assets/games/clicker-ore/header.jpg",
+    "is_free": true,
+    "platforms": [
+      "windows",
+      "mac"
+    ],
+    "release_date": "26 Jul 2026",
+    "store_live": true,
+    "store_url": "https://store.steampowered.com/app/3810540/"
+  }
+}

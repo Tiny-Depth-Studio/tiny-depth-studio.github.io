@@ -1,0 +1,65 @@
+name: Refresh game data
+
+on:
+  schedule:
+    - cron: "41 5,17 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "assets/site.css"
+      - ".github/workflows/refresh.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Fetch store data and artwork
+        run: python site/steam.py
+
+      - name: Rebuild the pages
+        run: python site/build_site.py
+
+      - name: Commit if anything changed
+        run: |
+          git add --intent-to-add assets/games
+          if git diff --quiet; then
+            echo "Nothing changed, nothing to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # main may have moved while this job was building. Point the branch at
+          # whatever is on the remote now, keeping the freshly built files in the
+          # working tree, so the commit below fast-forwards instead of racing.
+          git fetch --depth=1 origin main
+          git reset --mixed FETCH_HEAD
+
+          git add index.html 404.html site/data/games.json assets/games
+          if git diff --cached --quiet; then
+            echo "Nothing new once synced with main."
+            exit 0
+          fi
+
+          git commit -m "Refresh game data from Steam"
+          git push origin HEAD:main
