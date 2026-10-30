@@ -1,0 +1,4 @@
+Contact: mailto:tinydepthstudio@gmail.com
+Expires: 2027-10-30T00:00:00.000Z
+Preferred-Languages: en, tr
+Canonical: https://tiny-depth-studio.github.io/.well-known/security.txt
