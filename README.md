@@ -8,7 +8,7 @@ name `tiny-depth-studio.github.io` is what puts it at the domain root).
 - Every game keeps its own site in its own repository, published as a project page under this domain:
   - Clicker Ore: `Tiny-Depth-Studio/Clicker-Ore-Legal` at https://tiny-depth-studio.github.io/Clicker-Ore-Legal/.
     Its address must not move: shipped game builds read its privacy policy and `site/data/updates_*.json` from there.
-  - Clicker Button: `Tiny-Depth-Studio/Clicker-Button-Legal` at https://tiny-depth-studio.github.io/Clicker-Button-Legal/.
+  - The Last Button: `Tiny-Depth-Studio/The-Last-Button-Legal` at https://tiny-depth-studio.github.io/The-Last-Button-Legal/.
     The game opens its privacy policy and terms from there.
 - Links to game sites are absolute (`https://tiny-depth-studio.github.io/...`) so the page also works when opened from
   disk.
@@ -26,7 +26,7 @@ demand, and commits only when something changed. When a game's store page goes p
 
 ## Adding a game
 
-1. Create its `<Game>-Legal` repository with the same layout as `Clicker-Button-Legal` and enable Pages.
+1. Create its `<Game>-Legal` repository with the same layout as `The-Last-Button-Legal` and enable Pages.
 2. Add one entry to `GAMES` in `site/games.py` (slug, name, Steam app id, site URL, genre, description).
 3. Until the store page is public the card shows no game art: `header_image` stays empty and the card draws a cover with the game name on its accent colour, so nothing of an unreleased game is published. Once the store page is public, `site/steam.py` downloads the Steam header to `assets/games/<slug>/header.jpg`.
 4. Optional: give the card its own button colour with `.game.<slug> { --game-accent: ...; }` in `assets/site.css`.

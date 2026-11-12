@@ -21,10 +21,10 @@ GAMES = [
                        "Your mine keeps working even while you're away.",
     },
     {
-        "slug": "clicker-button",
-        "name": "Clicker Button",
+        "slug": "the-last-button",
+        "name": "The Last Button",
         "app_id": 5526030,
-        "site": "https://tiny-depth-studio.github.io/Clicker-Button-Legal/",
+        "site": "https://tiny-depth-studio.github.io/The-Last-Button-Legal/",
         "genre": "Shape-fitting 3D clicker",
         "description": "Buy buttons shaped like blocks, fit them onto your grid and click them for cash. "
                        "Harder shapes pay bigger multipliers.",

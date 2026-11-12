@@ -161,7 +161,7 @@ nav.links a:hover { color: var(--text); }
 
 .btn.primary:hover { filter: brightness(1.08); }
 
-.game.clicker-button { --game-accent: #ffc63a; }
+.game.the-last-button { --game-accent: #ffc63a; }
 
 .game .legal { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; }
 
