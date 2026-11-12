@@ -125,7 +125,7 @@ INDEX = """
 """
 
 CARD = """        <article class="game {slug}">
-          <a href="{site}"><img src="{image}" alt="{name}" width="460" height="215" loading="lazy"></a>
+          {cover}
           <div class="body">
             <h3>{name}</h3>
             <span class="meta">{meta}</span>
@@ -180,13 +180,19 @@ def card(game, store):
     site = game["site"]
     if not site.startswith("https://") or not site.endswith("/"):
         raise ValueError("game site must be an https URL ending in '/': {0}".format(site))
-    if not os.path.exists(os.path.join(ROOT, store["header_image"])):
-        raise FileNotFoundError("missing card image {0}".format(store["header_image"]))
+    image = store.get("header_image") or ""
+    if image and not os.path.exists(os.path.join(ROOT, image)):
+        raise FileNotFoundError("missing card image {0}".format(image))
+    if image:
+        cover = '<a href="{0}"><img src="{1}" alt="{2}" width="460" height="215" loading="lazy"></a>'.format(
+            esc(site), esc(image), esc(game["name"]))
+    else:
+        cover = '<a class="cover" href="{0}"><span>{1}</span></a>'.format(esc(site), esc(game["name"]))
     return CARD.format(
         slug=esc(game["slug"]),
         site=esc(site),
         name=esc(game["name"]),
-        image=esc(store["header_image"]),
+        cover=cover,
         meta=meta_line(game, store),
         description=esc(game["description"]),
         store=store_button(store),

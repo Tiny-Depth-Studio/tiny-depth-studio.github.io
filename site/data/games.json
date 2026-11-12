@@ -1,7 +1,7 @@
 {
   "clicker-button": {
     "coming_soon": true,
-    "header_image": "assets/games/clicker-button/header.jpg",
+    "header_image": "",
     "is_free": false,
     "platforms": [
       "windows"

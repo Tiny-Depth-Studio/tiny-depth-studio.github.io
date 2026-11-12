@@ -100,7 +100,7 @@ def main():
         entry = collect(game)
         if entry is None:
             entry = previous.get(slug) or {
-                "header_image": "assets/games/{0}/header.jpg".format(slug),
+                "header_image": "",
                 "store_live": False,
                 "is_free": False,
                 "coming_soon": True,

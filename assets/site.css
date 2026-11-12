@@ -126,6 +126,8 @@ nav.links a:hover { color: var(--text); }
 
 .game img { display: block; width: 100%; height: auto; aspect-ratio: 460 / 215; object-fit: cover; }
 
+.game .cover { display: flex; align-items: center; justify-content: center; aspect-ratio: 460 / 215; background: radial-gradient(70% 90% at 50% 0%, var(--game-accent, var(--line-strong)), transparent 75%), var(--card); color: var(--text); font-size: 26px; font-weight: 700; text-decoration: none; letter-spacing: 0.02em; }
+
 .game .body { display: flex; flex-direction: column; gap: 10px; padding: 18px 18px 20px; flex: 1; }
 
 .game h3 { margin: 0; font-size: 20px; }

@@ -6,7 +6,8 @@ repository on GitHub Pages); its privacy policy and terms live next to it.
 `genre` and `description` are written by hand for the card. Everything else on
 the card (Steam button, release date, header image) comes from Steam through
 site/steam.py. Until a game's store page is public, its card shows
-"Coming soon to Steam" and the local header at assets/games/<slug>/header.jpg.
+"Coming soon to Steam" and a cover with its name instead of art (no image of an
+unreleased game is committed).
 """
 
 GAMES = [
