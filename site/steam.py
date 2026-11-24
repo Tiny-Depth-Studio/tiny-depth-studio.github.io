@@ -82,8 +82,9 @@ def collect(game):
         return None
     data = entry["data"]
     release = data.get("release_date") or {}
+    current = data.get("name") == game["name"]
     return {
-        "header_image": download_image(data.get("header_image"), game["slug"]),
+        "header_image": download_image(data.get("header_image"), game["slug"]) if current else "",
         "store_live": True,
         "is_free": bool(data.get("is_free")),
         "coming_soon": bool(release.get("coming_soon")),
