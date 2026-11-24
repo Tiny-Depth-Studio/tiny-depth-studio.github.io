@@ -13,13 +13,13 @@
   },
   "the-last-button": {
     "coming_soon": true,
-    "header_image": "",
+    "header_image": "assets/games/the-last-button/header.jpg",
     "is_free": false,
     "platforms": [
       "windows"
     ],
-    "release_date": "",
-    "store_live": false,
+    "release_date": "1 Jan 2027",
+    "store_live": true,
     "store_url": "https://store.steampowered.com/app/5526030/"
   }
 }
