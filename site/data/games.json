@@ -4,7 +4,8 @@
     "header_image": "",
     "is_free": false,
     "platforms": [
-      "windows"
+      "windows",
+      "mac"
     ],
     "release_date": "1 Jan 2027",
     "store_live": true,
